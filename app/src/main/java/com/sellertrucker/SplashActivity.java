@@ -1,22 +1,46 @@
 package com.sellertrucker;
 
+import android.app.Activity;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.NotificationCompat;
+
+import org.json.JSONException;
 
 public class SplashActivity extends AppCompatActivity {
     Handler handler;
     Intent intent;
+    static Client client;
+    static NotificationCompat.Builder builder;
+    static NotificationManager mNotificationManager;
+    static Activity activity;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-<<<<<<< HEAD
         setContentView(R.layout.activity_splash);
-=======
-        setContentView(R.layout.activity_splash2);
->>>>>>> ba41cacbd1ce44d78ceeb4005f04a69abe640608
         handler = new Handler();
+        activity = this;
+
+
+
+
+        mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    client = new Client("52.79.189.195", 5001);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
 
         new Thread(new Runnable() {
             @Override
@@ -40,4 +64,8 @@ public class SplashActivity extends AppCompatActivity {
             }
         }).start();
     }
+
+
+
+
 }
