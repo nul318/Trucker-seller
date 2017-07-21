@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private Fragment schedule_fragment;
     private Fragment request_fragment;
     private Fragment my_truck_fragment;
+    private Fragment pos_fragment;
 
     public void setActionBar(){
         ActionBar actionBar = getSupportActionBar();
@@ -45,15 +46,16 @@ public class MainActivity extends AppCompatActivity {
         schedule_fragment = new ScheduleFragment();
         request_fragment = new RequestFragment();
         my_truck_fragment = new MyTruckFragment();
-
+        pos_fragment = new PosFragment();
 
         pager = (ViewPager) findViewById(R.id.view_pager);
 
         MyAdapter adapter = new MyAdapter(getSupportFragmentManager());
         adapter.addFragment(home_fragement, "1");
         adapter.addFragment(schedule_fragment, "2");
-        adapter.addFragment(request_fragment, "3");
-        adapter.addFragment(my_truck_fragment, "4");
+        adapter.addFragment(pos_fragment, "3");
+        adapter.addFragment(request_fragment, "4");
+        adapter.addFragment(my_truck_fragment, "5");
 
         pager.setAdapter(adapter); // 처음으로 0번째 Fragment 를 보여줍니다.
 //        pager.setCurrentItem(0);
@@ -78,6 +80,13 @@ public class MainActivity extends AppCompatActivity {
         );
         models.add(
                 new NavigationTabBar.Model.Builder(
+                        getResources().getDrawable(R.drawable.activity_main_profile_icon),
+                        Color.parseColor("#FFFFFF")
+                ).title("Pos")
+                        .build()
+        );
+        models.add(
+                new NavigationTabBar.Model.Builder(
                         getResources().getDrawable(R.drawable.activity_main_request_icon),
                         Color.parseColor("#FFFFFF")
                 ).title("Request")
@@ -90,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
                 ).title("My Truck")
                         .build()
         );
+
 
         navigationTabBar.setModels(models);
 
