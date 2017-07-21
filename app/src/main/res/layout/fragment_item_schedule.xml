@@ -2,17 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+android:background="@drawable/schedule_item"
     >
-    <com.tmall.ultraviewpager.UltraViewPager
-        android:id="@+id/schedule_viewpager"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-
-        android:background="#E9E8E7"
-        />
-
 
 </LinearLayout>

@@ -35,6 +35,12 @@ dependencies {
      */
     compile 'com.google.android.gms:play-services-maps:10.2.1'
 
+    /*
+     * UltraViewPager
+     */
+    compile ('com.alibaba.android:ultraviewpager:1.0.4@aar') {
+        transitive = true
+    }
 
     testCompile 'junit:junit:4.12'
 }
