@@ -11,11 +11,6 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-<<<<<<< HEAD
-        setContentView(R.layout.activity_splash);
-=======
-        setContentView(R.layout.activity_splash2);
->>>>>>> ba41cacbd1ce44d78ceeb4005f04a69abe640608
         handler = new Handler();
 
         new Thread(new Runnable() {
