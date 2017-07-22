@@ -11,7 +11,8 @@
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/wrap" />
+        android:layout_above="@+id/wrap"
+        android:background="#ffffff"/>
 
     <FrameLayout
         android:id="@+id/wrap"

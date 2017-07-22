@@ -5,14 +5,159 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="10sp"
     >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.1">
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_weight="0.4"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/insert_schedule"
+        >
+    </ImageView>
+    <View
+        android:layout_width="0dp"
+        android:layout_weight="0.6"
+        android:layout_height="match_parent">
+    </View>
+    </LinearLayout>
+
     <com.tmall.ultraviewpager.UltraViewPager
         android:id="@+id/schedule_viewpager"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
         android:background="#E9E8E7"
+        android:layout_marginBottom="10sp"
         />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:orientation="vertical"
+        android:padding="10sp"
+        android:background="#FFC478">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2"
+            android:text="도착 장소"
+            android:textSize="18sp"
+            android:gravity="bottom"
+            android:padding="3sp"
+            >
+        </TextView>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.3"
+            android:background="@drawable/xml_border4"
+            android:layout_margin="3sp"
+            >
+        </View>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2"
+            android:text="도착 날짜와 시간"
+            android:textSize="18sp"
+            android:gravity="bottom"
+            android:padding="3sp">
+        </TextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.4"
+            android:padding="3sp">
+            <View
+                android:layout_width="0dp"
+                android:layout_weight="0.2"
+                android:layout_height="match_parent"
+                android:background="@drawable/xml_border4">
+            </View>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="0.1"
+                android:layout_height="match_parent"
+                android:text="월"
+                android:textSize="18sp"
+                android:textAlignment="center"
+                android:gravity="center_vertical">
+            </TextView>
+            <View
+                android:layout_width="0dp"
+                android:layout_weight="0.2"
+                android:layout_height="match_parent"
+                android:background="@drawable/xml_border4">
+            </View>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="0.1"
+                android:layout_height="match_parent"
+                android:text="일"
+                android:textSize="18sp"
+                android:textAlignment="center"
+                android:gravity="center_vertical">
+            </TextView>
+            <View
+                android:layout_width="0dp"
+                android:layout_weight="0.2"
+                android:layout_height="match_parent"
+                android:background="@drawable/xml_border4">
+            </View>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="0.1"
+                android:layout_height="match_parent"
+                android:text="시"
+                android:textSize="18sp"
+                android:textAlignment="center"
+                android:gravity="center_vertical">
+            </TextView>
+            <View
+                android:layout_width="0dp"
+                android:layout_weight="0.2"
+                android:layout_height="match_parent"
+                android:background="@drawable/xml_border4">
+            </View>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="0.1"
+                android:layout_height="match_parent"
+                android:text="분"
+                android:textSize="18sp"
+                android:textAlignment="center"
+                android:gravity="center_vertical">
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.3"
+            android:padding="5sp">
+            <View
+                android:layout_width="0dp"
+                android:layout_weight="0.55"
+                android:layout_height="wrap_content">
+            </View>
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="0.45"
+                android:layout_height="wrap_content"
+                android:text="입력하기"
+                android:textColor="#ffff"
+                android:background="@drawable/mybutton"
+                >
+            </Button>
+        </LinearLayout>
+
+    </LinearLayout>
 
 
 </LinearLayout>

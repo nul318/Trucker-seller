@@ -4,18 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="15dp"
+    android:padding="5dp"
     tools:context="com.sellertrucker.SplashActivity"
-    android:background="#86D292"
-
-    android:orientation="vertical">
-
+    android:orientation="vertical"
+    android:background="#ffffff">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/xml_border5"
+        android:orientation="vertical"
+        android:padding="10dp">
     <TextView
         android:id="@+id/address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="요청! 서울시 서초구 양재2동"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textSize="18sp"
 
         />
@@ -23,7 +27,7 @@
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#FFFFFF"
+        android:background="#000000"
         />
 
     <TextView
@@ -31,7 +35,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="오늘 오후 6시에 방문 가능하신가요!"
-        android:textColor="#FFFFFF"
+        android:text="오늘 오후 6시에 방문 가능하신가요?"
+        android:textColor="#000000"
         android:textSize="20sp" />
+    </LinearLayout>
 </LinearLayout>

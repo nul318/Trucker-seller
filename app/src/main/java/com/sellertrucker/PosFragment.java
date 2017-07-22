@@ -39,13 +39,13 @@ public class PosFragment extends Fragment {
             public void onClick(View v) {
                 boolean check=true;
                 for(Menu menu : menus){
-                    if(menu.title.equals("메뉴1")){
+                    if(menu.title.equals("케밥")){
                         menu.cnt++;
                         check=false;
                     }
                 }
                 if(check){
-                    menus.add(new Menu("메뉴1", 1));
+                    menus.add(new Menu("케밥", 1));
                 }
 
                 posAdapter.notifyDataSetChanged();
@@ -56,13 +56,13 @@ public class PosFragment extends Fragment {
             public void onClick(View v) {
                 boolean check=true;
                 for(Menu menu : menus){
-                    if(menu.title.equals("메뉴2")){
+                    if(menu.title.equals("큐브스테이크")){
                         menu.cnt++;
                         check=false;
                     }
                 }
                 if(check){
-                    menus.add(new Menu("메뉴2", 1));
+                    menus.add(new Menu("큐브스테이크", 1));
                 }
                 posAdapter.notifyDataSetChanged();
             }
@@ -72,13 +72,13 @@ public class PosFragment extends Fragment {
             public void onClick(View v) {
                 boolean check=true;
                 for(Menu menu : menus){
-                    if(menu.title.equals("메뉴3")){
+                    if(menu.title.equals("부리또")){
                         menu.cnt++;
                         check=false;
                     }
                 }
                 if(check){
-                    menus.add(new Menu("메뉴3", 1));
+                    menus.add(new Menu("부리또", 1));
                 }
                 posAdapter.notifyDataSetChanged();
             }
@@ -88,13 +88,13 @@ public class PosFragment extends Fragment {
             public void onClick(View v) {
                 boolean check=true;
                 for(Menu menu : menus){
-                    if(menu.title.equals("메뉴4")){
+                    if(menu.title.equals("치킨샐러드")){
                         menu.cnt++;
                         check=false;
                     }
                 }
                 if(check){
-                    menus.add(new Menu("메뉴4", 1));
+                    menus.add(new Menu("치킨샐러드", 1));
                 }
                 posAdapter.notifyDataSetChanged();
             }
