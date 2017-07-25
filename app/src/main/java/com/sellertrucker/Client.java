@@ -5,6 +5,7 @@ import android.os.Build;
 import android.support.v7.app.NotificationCompat;
 import android.util.Log;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -26,11 +27,11 @@ public class Client {
 
         this.socketChannel = null;
         charset = Charset.forName("UTF-8");
-
+        Log.e("Status", "서버 접속 시도");
         connection(ip, port);
 
 //        JSONObject json = new JSONObject();
-//        json.put("code", "01");
+//        json.put("code", "98");
 //        String id = json.toString();
 //        System.out.println("Sending Data : " + id);
 //        sendMessage(id);
@@ -51,8 +52,9 @@ public class Client {
             socketChannel.configureBlocking(true);
             socketChannel.connect(new InetSocketAddress(ip, port));
             receive();
-
+            Log.e("Status", "서버 접속");
         } catch (IOException e) {
+            Log.e("Status", "서버 접속 불가");
         }
     }
 
@@ -72,27 +74,30 @@ public class Client {
 //                        if(charset !=null){
 //                            msg = charset.decode(byteBuffer).toString();
 //                        }
-                        Log.e("Response", msg);
-                        JSONObject str = new JSONObject(msg);
-                        if (byteBuffer != null && charset != null) {
+
+                        if(isJSONValid(msg)) {
+                            JSONObject str = new JSONObject(msg);
+                            Log.e("Response", msg);
+                            if (str.get("code").equals("02")) {
 
 
-                            SplashActivity.builder = (NotificationCompat.Builder) new NotificationCompat.Builder(SplashActivity.activity)
-                                    .setSmallIcon(R.drawable.logo)
-                                    .setContentTitle("요청이 왔습니다")
-                                    .setContentText(str.getString("message"))
-                                    .setSmallIcon(R.drawable.logo)
-                                    .setAutoCancel(true)
-                                    .setWhen(System.currentTimeMillis())
-                                    .setDefaults(Notification.DEFAULT_ALL);
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                                SplashActivity.builder.setCategory(Notification.CATEGORY_MESSAGE)
-                                        .setPriority(Notification.PRIORITY_HIGH)
-                                        .setVisibility(Notification.VISIBILITY_PUBLIC);
+                                SplashActivity.builder = (NotificationCompat.Builder) new NotificationCompat.Builder(SplashActivity.activity)
+                                        .setSmallIcon(R.drawable.logo)
+                                        .setContentTitle("요청이 왔습니다")
+                                        .setContentText(str.getString("message"))
+                                        .setSmallIcon(R.drawable.logo)
+                                        .setAutoCancel(true)
+                                        .setWhen(System.currentTimeMillis())
+                                        .setDefaults(Notification.DEFAULT_ALL);
+                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                                    SplashActivity.builder.setCategory(Notification.CATEGORY_MESSAGE)
+                                            .setPriority(Notification.PRIORITY_HIGH)
+                                            .setVisibility(Notification.VISIBILITY_PUBLIC);
+                                }
+
+                                SplashActivity.mNotificationManager.notify(1, SplashActivity.builder.build());
+
                             }
-
-                            SplashActivity.mNotificationManager.notify(1, SplashActivity.builder.build());
-
                         }
                     } catch (IOException e) {
                         System.out.println(e);
@@ -116,5 +121,20 @@ public class Client {
                 System.out.println("Client Close Error" + e);
             }
         }
+    }
+
+    public boolean isJSONValid(String test) {
+        try {
+            new JSONObject(test);
+        } catch (JSONException ex) {
+            // edited, to include @Arthur's comment
+            // e.g. in case JSONArray is valid as well...
+            try {
+                new JSONArray(test);
+            } catch (JSONException ex1) {
+                return false;
+            }
+        }
+        return true;
     }
 }
